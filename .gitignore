@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+data/raw/
+data/processed/
+data/outputs/
+
+# Results
+results/metrics/
+results/figures/
+results/explanations/
+
+# Model files
+*.h5
+*.keras
+*.pkl
+*.joblib
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db

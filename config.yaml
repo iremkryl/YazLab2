@@ -1,0 +1,50 @@
+project:
+  name: "YazLab2"
+  random_seeds: [42, 123, 2026, 7, 999]
+
+datasets:
+  skab:
+    raw_path: "data/raw/SKAB"
+    valve_folders: ["valve1", "valve2"]
+    target_column: "anomaly"
+    excluded_columns: ["datetime", "changepoint", "source_group", "source_file"]
+    group_column: "source_file"
+
+  batadal:
+    raw_path: "data/raw/BATADAL"
+    target_column: null
+    time_column: null
+    train_ratio: 0.60
+    validation_ratio: 0.20
+    test_ratio: 0.20
+
+preprocessing:
+  normalization: "standard"
+  use_pca: true
+  pca_components: 1
+  sequence_length: 20
+
+deep_learning:
+  epochs: 50
+  batch_size: 32
+  early_stopping_patience: 5
+  models:
+    irem: "lstm"
+    melike: "gru"
+
+automata:
+  default_window_size: 4
+  default_alphabet_size: 3
+  window_sizes: [3, 4, 5, 6]
+  alphabet_sizes: [3, 4, 5, 6]
+  use_levenshtein_for_unseen: true
+
+experiments:
+  scenarios: ["original", "gaussian_noise", "unseen"]
+  metrics: ["accuracy", "precision", "recall", "f1"]
+  save_results: true
+
+outputs:
+  metrics_dir: "results/metrics"
+  figures_dir: "results/figures"
+  explanations_dir: "results/explanations"
