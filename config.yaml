@@ -12,8 +12,10 @@ datasets:
 
   batadal:
     raw_path: "data/raw/BATADAL"
-    target_column: null
-    time_column: null
+    target_column: "ATT_FLAG"
+    time_column: "DATETIME"
+    normal_label: -999
+    anomaly_label: 1
     train_ratio: 0.60
     validation_ratio: 0.20
     test_ratio: 0.20
