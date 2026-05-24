@@ -1,5 +1,6 @@
 from sklearn.utils.class_weight import compute_class_weight
 import numpy as np
+import pandas as pd
 
 from src.config.config_loader import load_config
 from src.data.load_batadal import (
@@ -234,10 +235,79 @@ def run_single_lstm_experiment(seed: int):
 
     return result
 
+def run_all_lstm_experiments():
+    """
+    Config dosyasında belirtilen tüm random seed değerleri için
+    LSTM deneylerini çalıştırır.
+
+    Her seed için ayrı sonuç kaydedilir.
+    En sonunda ortalama ve standart sapma hesaplanır.
+    """
+    config = load_config()
+    seeds = config["project"]["random_seeds"]
+    outputs_config = config["outputs"]
+
+    all_results = []
+
+    for seed in seeds:
+        print("\n" + "=" * 80)
+        print(f"LSTM deneyi başlıyor. Seed: {seed}")
+        print("=" * 80)
+
+        result = run_single_lstm_experiment(seed=seed)
+
+        metrics = result["test_metrics"]
+
+        row = {
+            "seed": seed,
+            "accuracy": metrics["accuracy"],
+            "precision": metrics["precision"],
+            "recall": metrics["recall"],
+            "f1": metrics["f1"],
+            "selected_threshold": result["selected_threshold"],
+            "epochs_ran": result["epochs_ran"]
+        }
+
+        all_results.append(row)
+
+    results_df = pd.DataFrame(all_results)
+
+    summary = {
+        "dataset": "BATADAL",
+        "model": "LSTM",
+        "seeds": seeds,
+        "mean_metrics": {
+            "accuracy": float(results_df["accuracy"].mean()),
+            "precision": float(results_df["precision"].mean()),
+            "recall": float(results_df["recall"].mean()),
+            "f1": float(results_df["f1"].mean())
+        },
+        "std_metrics": {
+            "accuracy": float(results_df["accuracy"].std()),
+            "precision": float(results_df["precision"].std()),
+            "recall": float(results_df["recall"].std()),
+            "f1": float(results_df["f1"].std())
+        },
+        "all_seed_results": all_results
+    }
+
+    save_json_result(
+        result=summary,
+        output_dir=outputs_config["metrics_dir"],
+        file_name="batadal_lstm_summary_all_seeds.json"
+    )
+
+    print("\nLSTM 5 seed özet sonucu:")
+    print(results_df)
+
+    print("\nOrtalama metrikler:")
+    print(summary["mean_metrics"])
+
+    print("\nStandart sapma metrikleri:")
+    print(summary["std_metrics"])
+
+    return summary
+
 
 if __name__ == "__main__":
-    config = load_config()
-
-    first_seed = config["project"]["random_seeds"][0]
-
-    run_single_lstm_experiment(seed=first_seed)
+    run_all_lstm_experiments()

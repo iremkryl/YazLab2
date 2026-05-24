@@ -79,7 +79,8 @@ def train_lstm_model(
     Early stopping validation loss'a göre yapılır.
     """
     early_stopping = EarlyStopping(
-        monitor="val_loss",
+        monitor="val_auc",
+        mode="max",
         patience=patience,
         restore_best_weights=True
     )
