@@ -121,4 +121,4 @@ def prepare_batadal_features_and_target(
     # Model girdisinden zaman ve hedef sütunlarını çıkar
     X = df.drop(columns=[time_column, target_column])
 
-    return X, y
+    return X,y
