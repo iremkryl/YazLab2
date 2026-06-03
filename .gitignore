@@ -39,3 +39,7 @@ Thumbs.db
 !results/
 !results/metrics/
 !results/metrics/*.json
+
+
+!results/figures/
+!results/figures/*.png
