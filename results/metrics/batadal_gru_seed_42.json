@@ -1,0 +1,44 @@
+{
+    "dataset": "BATADAL",
+    "model": "GRU",
+    "seed": 42,
+    "input_shape": [
+        20,
+        43
+    ],
+    "epochs_ran": 50,
+    "selected_threshold": 0.4800000000000001,
+    "validation_threshold_metrics": {
+        "accuracy": 0.9571078431372549,
+        "precision": 0.55,
+        "recall": 0.2972972972972973,
+        "f1": 0.38596491228070173,
+        "confusion_matrix": [
+            [
+                770,
+                9
+            ],
+            [
+                26,
+                11
+            ]
+        ]
+    },
+    "test_metrics": {
+        "accuracy": 0.8984088127294981,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix": [
+            [
+                734,
+                3
+            ],
+            [
+                80,
+                0
+            ]
+        ]
+    },
+    "saved_at": "2026-06-03 01:54:52"
+}

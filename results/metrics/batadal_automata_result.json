@@ -1,0 +1,221 @@
+{
+    "dataset": "BATADAL",
+    "model": "ProbabilisticAutomata",
+    "window_size": 4,
+    "alphabet_size": 3,
+    "n_segments": 300,
+    "sequence_size": 3,
+    "selected_threshold": 0.46153846153846156,
+    "validation_metrics": {
+        "accuracy": 0.11864406779661017,
+        "precision": 0.047619047619047616,
+        "recall": 1.0,
+        "f1": 0.09090909090909091,
+        "confusion_matrix": [
+            [
+                22,
+                260
+            ],
+            [
+                0,
+                13
+            ]
+        ]
+    },
+    "test_metrics": {
+        "accuracy": 0.1288135593220339,
+        "precision": 0.09252669039145907,
+        "recall": 0.9285714285714286,
+        "f1": 0.16828478964401294,
+        "confusion_matrix": [
+            [
+                12,
+                255
+            ],
+            [
+                2,
+                26
+            ]
+        ]
+    },
+    "state_count": 50,
+    "transition_count": 91,
+    "sample_explanations": [
+        {
+            "time_step": 0,
+            "state": "bacb",
+            "pattern": "ccba",
+            "status": "unseen",
+            "mapped_to": "acba",
+            "transitions": [
+                {
+                    "from_state": "acba",
+                    "to_state": "cbac",
+                    "probability": 0.5
+                },
+                {
+                    "from_state": "cbac",
+                    "to_state": "bacb",
+                    "probability": 0.8
+                }
+            ],
+            "probability": 0.4,
+            "path_probability": 0.4,
+            "anomaly_threshold": 0.46153846153846156,
+            "decision": "anomaly",
+            "confidence_score": 0.4,
+            "original_patterns": [
+                "ccba",
+                "cbac",
+                "bacb"
+            ],
+            "used_patterns": [
+                "acba",
+                "cbac",
+                "bacb"
+            ],
+            "levenshtein_distance": 1
+        },
+        {
+            "time_step": 1,
+            "state": "acbb",
+            "pattern": "acbb",
+            "status": "seen",
+            "mapped_to": null,
+            "transitions": [
+                {
+                    "from_state": "cbac",
+                    "to_state": "bacb",
+                    "probability": 0.8
+                },
+                {
+                    "from_state": "bacb",
+                    "to_state": "acbb",
+                    "probability": 0.75
+                }
+            ],
+            "probability": 0.6000000000000001,
+            "path_probability": 0.6000000000000001,
+            "anomaly_threshold": 0.46153846153846156,
+            "decision": "normal",
+            "confidence_score": 0.6000000000000001,
+            "original_patterns": [
+                "cbac",
+                "bacb",
+                "acbb"
+            ],
+            "used_patterns": [
+                "cbac",
+                "bacb",
+                "acbb"
+            ],
+            "levenshtein_distance": null
+        },
+        {
+            "time_step": 2,
+            "state": "cbbc",
+            "pattern": "cbbc",
+            "status": "seen",
+            "mapped_to": null,
+            "transitions": [
+                {
+                    "from_state": "bacb",
+                    "to_state": "acbb",
+                    "probability": 0.75
+                },
+                {
+                    "from_state": "acbb",
+                    "to_state": "cbbc",
+                    "probability": 0.8181818181818182
+                }
+            ],
+            "probability": 0.6136363636363636,
+            "path_probability": 0.6136363636363636,
+            "anomaly_threshold": 0.46153846153846156,
+            "decision": "normal",
+            "confidence_score": 0.6136363636363636,
+            "original_patterns": [
+                "bacb",
+                "acbb",
+                "cbbc"
+            ],
+            "used_patterns": [
+                "bacb",
+                "acbb",
+                "cbbc"
+            ],
+            "levenshtein_distance": null
+        },
+        {
+            "time_step": 3,
+            "state": "bbcc",
+            "pattern": "bbcc",
+            "status": "seen",
+            "mapped_to": null,
+            "transitions": [
+                {
+                    "from_state": "acbb",
+                    "to_state": "cbbc",
+                    "probability": 0.8181818181818182
+                },
+                {
+                    "from_state": "cbbc",
+                    "to_state": "bbcc",
+                    "probability": 0.10526315789473684
+                }
+            ],
+            "probability": 0.0861244019138756,
+            "path_probability": 0.0861244019138756,
+            "anomaly_threshold": 0.46153846153846156,
+            "decision": "anomaly",
+            "confidence_score": 0.0861244019138756,
+            "original_patterns": [
+                "acbb",
+                "cbbc",
+                "bbcc"
+            ],
+            "used_patterns": [
+                "acbb",
+                "cbbc",
+                "bbcc"
+            ],
+            "levenshtein_distance": null
+        },
+        {
+            "time_step": 4,
+            "state": "bccb",
+            "pattern": "bccb",
+            "status": "seen",
+            "mapped_to": null,
+            "transitions": [
+                {
+                    "from_state": "cbbc",
+                    "to_state": "bbcc",
+                    "probability": 0.10526315789473684
+                },
+                {
+                    "from_state": "bbcc",
+                    "to_state": "bccb",
+                    "probability": 1e-12
+                }
+            ],
+            "probability": 1.0526315789473683e-13,
+            "path_probability": 1.0526315789473683e-13,
+            "anomaly_threshold": 0.46153846153846156,
+            "decision": "anomaly",
+            "confidence_score": 1.0526315789473683e-13,
+            "original_patterns": [
+                "cbbc",
+                "bbcc",
+                "bccb"
+            ],
+            "used_patterns": [
+                "cbbc",
+                "bbcc",
+                "bccb"
+            ],
+            "levenshtein_distance": null
+        }
+    ],
+    "saved_at": "2026-05-24 22:28:17"
+}

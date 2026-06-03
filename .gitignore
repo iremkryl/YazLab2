@@ -35,3 +35,7 @@ results/explanations/
 # OS
 .DS_Store
 Thumbs.db
+
+!results/
+!results/metrics/
+!results/metrics/*.json

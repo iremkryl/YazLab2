@@ -1,0 +1,44 @@
+{
+    "dataset": "BATADAL",
+    "model": "LSTM",
+    "seed": 7,
+    "input_shape": [
+        20,
+        43
+    ],
+    "epochs_ran": 6,
+    "selected_threshold": 0.38000000000000006,
+    "validation_threshold_metrics": {
+        "accuracy": 0.9607843137254902,
+        "precision": 0.5806451612903226,
+        "recall": 0.4864864864864865,
+        "f1": 0.5294117647058824,
+        "confusion_matrix": [
+            [
+                766,
+                13
+            ],
+            [
+                19,
+                18
+            ]
+        ]
+    },
+    "test_metrics": {
+        "accuracy": 0.966952264381885,
+        "precision": 0.7849462365591398,
+        "recall": 0.9125,
+        "f1": 0.8439306358381503,
+        "confusion_matrix": [
+            [
+                717,
+                20
+            ],
+            [
+                7,
+                73
+            ]
+        ]
+    },
+    "saved_at": "2026-05-24 22:58:36"
+}
