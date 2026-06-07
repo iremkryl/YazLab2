@@ -1,0 +1,22 @@
+{
+    "description": "Runtime values were measured on a single local run using the first random seed for LSTM and GRU.",
+    "results": [
+        {
+            "model": "LSTM",
+            "seed": 42,
+            "training_time_seconds": 7.2885,
+            "inference_time_seconds": 0.3227
+        },
+        {
+            "model": "GRU",
+            "seed": 42,
+            "training_time_seconds": 22.9144,
+            "inference_time_seconds": 0.2913
+        },
+        {
+            "model": "Automata",
+            "training_time_seconds": 0.0001,
+            "inference_time_seconds": 0.052
+        }
+    ]
+}

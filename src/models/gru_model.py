@@ -18,8 +18,8 @@ def build_gru_model(
 
     Örnek:
     - sequence_length = 20
-    - feature_count = 8
-    - input_shape = (20, 8)
+    - feature_count = 43
+    - input_shape = (20, 43)
     """
     import tensorflow as tf
 
@@ -46,7 +46,9 @@ def build_gru_model(
         )
     ])
 
-    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    optimizer = tf.keras.optimizers.Adam(
+        learning_rate=learning_rate
+    )
 
     model.compile(
         optimizer=optimizer,
@@ -76,10 +78,17 @@ def train_gru_model(
     """
     GRU modelini eğitir.
 
-    Early stopping validation loss'a göre yapılır.
+    Önceki sürümde model 50 epoch boyunca devam edip overfit olabiliyordu.
+    Bu sürümde EarlyStopping validation AUC'a göre yapılır.
+
+    Böylece:
+    - validation AUC en iyi olduğu noktadaki ağırlıklar saklanır,
+    - model gereksiz yere 50 epoch boyunca overfit olmaz,
+    - restore_best_weights=True sayesinde en iyi ağırlıklar geri yüklenir.
     """
     early_stopping = EarlyStopping(
-        monitor="val_loss",
+        monitor="val_auc",
+        mode="max",
         patience=patience,
         restore_best_weights=True
     )
@@ -103,10 +112,10 @@ def predict_gru_model(model, X, threshold: float = 0.5):
     GRU modelinden binary tahmin üretir.
 
     threshold:
-    - 0.5 ve üzeri değerler anomali kabul edilir.
+    - threshold ve üzeri değerler anomali kabul edilir.
     """
-    probabilities = model.predict(X)
+    probabilities = model.predict(X).flatten()
 
-    predictions = (probabilities >= threshold).astype(int).flatten()
+    predictions = (probabilities >= threshold).astype(int)
 
-    return predictions, probabilities.flatten()
+    return predictions, probabilities

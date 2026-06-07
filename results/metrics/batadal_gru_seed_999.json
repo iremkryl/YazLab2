@@ -6,39 +6,49 @@
         20,
         43
     ],
-    "epochs_ran": 50,
-    "selected_threshold": 0.05,
+    "epochs_ran": 8,
+    "selected_threshold": 0.041,
     "validation_threshold_metrics": {
-        "accuracy": 0.9632352941176471,
-        "precision": 0.64,
-        "recall": 0.43243243243243246,
-        "f1": 0.5161290322580645,
+        "accuracy": 0.9571078431372549,
+        "precision": 0.53125,
+        "recall": 0.4594594594594595,
+        "f1": 0.4927536231884058,
         "confusion_matrix": [
             [
-                770,
-                9
+                764,
+                15
             ],
             [
-                21,
-                16
+                20,
+                17
             ]
         ]
+    },
+    "validation_probability_summary": {
+        "min": 0.0002835682244040072,
+        "max": 0.9978817701339722,
+        "mean": 0.029177462682127953
+    },
+    "test_probability_summary": {
+        "min": 0.0002838519576471299,
+        "max": 0.38599494099617004,
+        "mean": 0.008200275711715221
     },
     "test_metrics": {
-        "accuracy": 0.9008567931456548,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
+        "accuracy": 0.9167686658506732,
+        "precision": 0.6304347826086957,
+        "recall": 0.3625,
+        "f1": 0.4603174603174603,
         "confusion_matrix": [
             [
-                736,
-                1
+                720,
+                17
             ],
             [
-                80,
-                0
+                51,
+                29
             ]
         ]
     },
-    "saved_at": "2026-06-03 01:57:37"
+    "saved_at": "2026-06-07 18:12:27"
 }

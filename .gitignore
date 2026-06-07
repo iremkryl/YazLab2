@@ -19,8 +19,17 @@ data/processed/
 data/outputs/
 
 # Results
-results/metrics/
-results/figures/
+# JSON metrik dosyaları teslim/README için gerekli olduğu için hariç tutulmaz.
+results/metrics/*
+!results/metrics/
+!results/metrics/*.json
+
+# PNG görseller README'de kullanıldığı için hariç tutulmaz.
+results/figures/*
+!results/figures/
+!results/figures/*.png
+
+# Açıklama çıktıları çok fazla/otomatik üretilebilir olduğu için ignore edilir.
 results/explanations/
 
 # Model files
@@ -35,11 +44,3 @@ results/explanations/
 # OS
 .DS_Store
 Thumbs.db
-
-!results/
-!results/metrics/
-!results/metrics/*.json
-
-
-!results/figures/
-!results/figures/*.png
